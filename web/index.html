@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trace Explorer</title><link rel="stylesheet" href="/style.css"></head>
+<body><main><header><h1>Distributed Trace Explorer</h1><p>实时链路、服务统计与调用拓扑</p></header><nav><button data-tab="traces">链路查询</button><button data-tab="services">服务统计</button><button data-tab="topology">调用拓扑</button><button data-tab="overview">系统概览</button></nav>
+<section id="traces" class="tab"><form id="trace-form"><input id="trace-id" placeholder="输入 32 位 Trace ID"><button>查询</button></form><pre id="trace-result">暂无数据</pre></section>
+<section id="services" class="tab hidden"><button id="refresh-services">刷新统计</button><div id="service-result" class="cards"></div></section>
+<section id="topology" class="tab hidden"><button id="refresh-topology">刷新拓扑</button><pre id="topology-result">暂无数据</pre></section>
+<section id="overview" class="tab hidden"><div id="overview-result" class="cards"></div></section></main><script src="/app.js"></script></body></html>
