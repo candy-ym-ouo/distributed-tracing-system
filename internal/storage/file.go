@@ -76,7 +76,7 @@ func (f *File) load() error {
 
 func (f *File) Put(ctx context.Context, spans []model.Span) error {
 	if err := ctx.Err(); err != nil {
-		return errors.New(err.Error())
+		return err
 	}
 	f.mu.Lock()
 	defer f.mu.Unlock()
