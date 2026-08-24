@@ -69,7 +69,7 @@ func (c *Collector) Submit(spans []model.Span) error {
 		return nil
 	default:
 		c.dropped.Add(uint64(len(batch)))
-		return nil
+		return ErrQueueFull
 	}
 }
 

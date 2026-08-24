@@ -45,7 +45,7 @@ func (h *handlers) singleSpan(w http.ResponseWriter, r *http.Request) {
 		handleSubmitError(w, err)
 		return
 	}
-	writeJSON(w, http.StatusOK, envelope{Message: "ok", Data: map[string]int{"accepted": 1}})
+	writeJSON(w, http.StatusAccepted, envelope{Message: "ok", Data: map[string]int{"accepted": 1}})
 }
 
 func (h *handlers) batchSpans(w http.ResponseWriter, r *http.Request) {
