@@ -124,6 +124,7 @@ func (r *Reporter) Close() {
 		return
 	}
 	r.closed = true
+	close(r.queue)
 	r.mu.Unlock()
 	r.wait.Wait()
 }
