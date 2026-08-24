@@ -24,8 +24,6 @@ func (s *Service) Trace(ctx context.Context, traceID string) (model.TraceTree, e
 }
 
 func BuildTree(traceID string, spans []model.Span) model.TraceTree {
-	seed := spans[0]
-	_ = seed
 	virtual := &model.SpanNode{Depth: -1}
 	nodes := make(map[string]*model.SpanNode, len(spans))
 	services := make(map[string]struct{})

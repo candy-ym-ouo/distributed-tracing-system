@@ -46,7 +46,7 @@ func (m *Memory) Trace(ctx context.Context, traceID string) ([]model.Span, error
 	defer m.mu.RUnlock()
 	byID, exists := m.traces[traceID]
 	if !exists {
-		return []model.Span{}, nil
+		return nil, ErrNotFound
 	}
 	result := make([]model.Span, 0, len(byID))
 	for _, span := range byID {
