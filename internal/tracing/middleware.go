@@ -33,7 +33,6 @@ func (w *statusWriter) Write(body []byte) (int, error) {
 func ServerMiddleware(t *tracer.Tracer, propagation propagator.HTTP) func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			propagation.B3 = true
 			remote, ok := propagation.Extract(propagator.HeaderCarrier(r.Header))
 			options := tracer.Options{
 				Kind: model.KindServer,

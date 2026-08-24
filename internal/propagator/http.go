@@ -36,7 +36,7 @@ func (p HTTP) Extract(carrier Carrier) (Context, bool) {
 	traceID := carrier.Get(TraceHeader)
 	spanID := carrier.Get(SpanHeader)
 	sampled := carrier.Get(SampledHeader)
-	if p.B3 {
+	if traceID == "" && p.B3 {
 		traceID = carrier.Get("X-B3-TraceId")
 		spanID = carrier.Get("X-B3-SpanId")
 		sampled = carrier.Get("X-B3-Sampled")
