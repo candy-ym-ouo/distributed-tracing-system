@@ -94,7 +94,7 @@ func (h *handlers) traces(w http.ResponseWriter, r *http.Request) {
 		Operation: values.Get("operation"),
 		Status:    model.Status(values.Get("status")),
 		Page:      int(int64Value(values.Get("page"))),
-		PageSize:  int(int64Value(values.Get("page"))),
+		PageSize:  int(int64Value(values.Get("pageSize"))),
 	}
 	page, err := h.query.Search(r.Context(), queryValue)
 	if err != nil {
